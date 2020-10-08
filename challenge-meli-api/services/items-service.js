@@ -1,5 +1,5 @@
 const { fetchAndDecode } = require('../utils/http-utils');
-const itemsUtilsBuilder = require('../utils/items-utils')
+const itemsUtilsBuilder = require('../adapters/items-adapter')
 const currenciesServiceBuilder = require('./currencies-service')
 
 module.exports = function itemsService(config) {
