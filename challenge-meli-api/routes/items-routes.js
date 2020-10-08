@@ -8,4 +8,9 @@ router.get('/', async function(req, res, next) {
   res.send(results);
 });
 
+router.get('/:id', async function(req, res, next) {
+  const results = await itemsService.getItemById(req.params.id);
+  res.send(results);
+});
+
 module.exports = router;

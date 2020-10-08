@@ -21,7 +21,10 @@
 **** TODO Math max para encontrar la categoría con mayor cantidad de resultados
 ** TODO Detalle del producto
 *** TODO '/items/:id'
-*** TODO Breadcrumbs (reutilizable? array de objetos, titulo link?)
+*** TODO Breadcrumbs (reutilizable? array de objetos, titulo link?
+** TODO SEO
+*** TODO robots.txt
+*** TODO index.html meta data
 
 * BackEnd
 ** TODO Search Endpoint '/api/items?q=:query'
