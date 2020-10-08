@@ -11,13 +11,4 @@ const authorData = {
   lastName: 'Zoppi',
 };
 
-module.exports = function () {
-  switch (process.env.NODE_ENV) {
-    case 'development':
-      return { meliEndpoints, authorData };
-    case 'production':
-      return { meliEndpoints, authorData };
-    default:
-      return { meliEndpoints, authorData };
-  }
-};
+module.exports = { meliEndpoints, authorData };
