@@ -1,0 +1,30 @@
+#+TITLE: Test Práctico ML
+
+* Stack
+** Cliente: HTML, SASS, JS (Angular y React)
+** Servidor: Node, Express
+
+* Preparación
+** FE
+** TODO Lectura de Usabilidad
+** TODO Lectura de SEO (Search Engine Optimization - Google)
+** BE
+** TODO Setup de Express App
+
+* FrontEnd
+** TODO Caja de busqueda
+*** TODO Routing: '/'
+*** TODO Desglosar
+** TODO Resultado de la búsqueda
+*** TODO Routing: '/items?search='
+*** TODO Breadcrumbs
+**** TODO Math max para encontrar la categoría con mayor cantidad de resultados
+** TODO Detalle del producto
+*** TODO '/items/:id'
+*** TODO Breadcrumbs (reutilizable? array de objetos, titulo link?)
+
+* BackEnd
+** TODO Search Endpoint '/api/items?q=:query'
+
+** TODO Intentar reutilizar la lógica para parsear un item en ambos endpoints
+
