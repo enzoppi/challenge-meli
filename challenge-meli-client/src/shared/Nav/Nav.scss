@@ -1,0 +1,29 @@
+.Nav {
+  &-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  &-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+
+    &-item {
+      text-decoration: none;
+      padding: 0 10px;
+    }
+  }
+
+  &-indentation {
+    width: 20vw;
+  }
+
+  &-logo {
+    width: 10vw;
+  }
+
+  &-searchbar {
+    width: 50vw;
+  }
+}

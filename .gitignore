@@ -12,6 +12,7 @@ challenge-meli-api/build
 challenge-meli-client/build
 
 # misc
+.vscode
 .DS_Store
 .env.local
 .env.development.local
