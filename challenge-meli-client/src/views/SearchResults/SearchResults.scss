@@ -1,0 +1,19 @@
+@import 'styles/variables';
+
+.SearchResults {
+  &-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    &-item {
+      &:not(:last-child) {
+        border-bottom: thin solid $color-border-thin;
+      }
+    }
+  }
+
+  &-noresults {
+    color: $color-black;
+  }
+}

@@ -1,0 +1,17 @@
+@import 'styles/variables';
+
+.Breadcrumbs {
+  &-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: $color-text-secondary;
+
+    p {
+      margin: 0.5rem;
+    }
+  }
+}

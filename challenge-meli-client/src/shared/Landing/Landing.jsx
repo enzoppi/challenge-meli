@@ -12,7 +12,9 @@ function Landing(props) {
         <Header>
           <Nav />
         </Header>
-        <ViewsRoutes />
+        <div className="Landing-sections">
+          <ViewsRoutes />
+        </div>
       </BrowserRouter>
     </div>
   );

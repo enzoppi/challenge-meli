@@ -5,9 +5,7 @@ function Header(props) {
   return (
     <div className="Header">
       <header className="Header-header">
-        <div className="Header-children">
-          {props.children}
-        </div>
+        {props.children}
       </header>
     </div>
   );

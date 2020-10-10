@@ -8,19 +8,20 @@ function SearchResults(props) {
   const location = useLocation();
   const [items, setItems] = useState([]);
   const [breadcrumbs, setBreadcrumbs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getItemsFromAPI = async () => {
-      const {query} = new URLSearchParams(location.search).get('q');
+      const query = new URLSearchParams(location.search).get('q');
       const res = await fetch(`${process.env.REACT_APP_API_URL}/items?q=${query}`);
-      const items = await res.json();
-      return items;
+      return await res.json();
     };
 
     const initResults = async () => {
-      const items = await getItemsFromAPI();
-      setBreadcrumbs();
-      setItems(items);
+      const results = await getItemsFromAPI();
+      setLoading(false);
+      setBreadcrumbs(results.categories);
+      setItems(results.items);
     };
   
 
@@ -29,11 +30,17 @@ function SearchResults(props) {
 
   return (
     <div className="SearchResults">
-      <div>
-        <Breadcrumbs breadcrumbs={breadcrumbs} />
-      </div>
-      <ul className="results-list">
-        {items.map((item) => <ItemCard item={item} />)}
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <ul className="SearchResults-list">
+        {items.length || loading ? 
+          items.map((item) => (
+            <li className="SearchResults-list-item" key={item.id}>
+              <ItemCard item={item} />
+            </li>
+            )
+          ) :
+          <p className="SearchResults-noresults">No se encontraron resultados</p>
+        }
       </ul>
     </div>
   );

@@ -4,13 +4,13 @@ import SearchResults from 'views/SearchResults/SearchResults';
 
 function SectionsRoutes() {
   return (
-    <div>
+    <>
       <Switch>
         <Route path="/items">
           <SearchResults />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 

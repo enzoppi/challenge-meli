@@ -2,9 +2,8 @@ const findCurrencyDecimals = (item, currencies) => currencies.find(currency => c
 
 module.exports = function (config) {
   return {
-    parseSearchItems: (searchResults, currencies) => {
-      const categoryFilters = searchResults.available_filters.find(filter => filter.id === 'category');
-      const sortedCategories = categoryFilters.values.sort((a, b) => b.results - a.results).map(category => category.name);
+    parseSearchItems: (searchResults, currencies, categoryData) => {
+      const categoryBreadcrumb = categoryData?.path_from_root.map(category => category.name) || [];
       const items = searchResults.results.map(item => ({
         id: item.id,
         title: item.title,
@@ -23,7 +22,7 @@ module.exports = function (config) {
           name: config.authorData.name,
           lastName: config.authorData.lastName,
         },
-        categories: sortedCategories,
+        categories: categoryBreadcrumb,
         items,
       }
     },

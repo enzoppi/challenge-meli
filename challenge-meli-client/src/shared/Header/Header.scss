@@ -2,21 +2,9 @@
 
 .Header {
   background-color: $color-accent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  width: 100%;
 
   &-header {
-    width: 100%;
-  }
-
-  &-topbar {
-    height: 60%;
-  }
-
-  &-children {
-    height: 40%;
+    height: 100%;
   }
 }

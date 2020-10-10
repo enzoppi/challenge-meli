@@ -7,10 +7,20 @@
 .Landing {
   width: 100vw;
   height: 100vh;
+  background-color: $color-bg-main;
+
+  &-sections {
+    width: 57vw;
+    margin: auto;
+  }
 }
 
 .Header {
-  height: 20vh;
+  height: 5vh;
+}
+
+.Nav {
+  height: 100%;
 }
 
 .Section {
