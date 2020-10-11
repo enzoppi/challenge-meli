@@ -19,11 +19,10 @@ function SearchResults(props) {
 
     const initResults = async () => {
       const results = await getItemsFromAPI();
+      setBreadcrumbs(results.categories || []);
+      setItems(results.items || []);
       setLoading(false);
-      setBreadcrumbs(results.categories);
-      setItems(results.items);
     };
-  
 
     initResults();
   }, [location.search]);

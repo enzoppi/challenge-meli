@@ -10,10 +10,8 @@ function Search(props) {
   const handleOnSearch = useCallback(() => history.push('/items?q=' + searchValue), [history, searchValue]);
 
   useEffect(() => {
-    const query = new URLSearchParams(location.search).get('q');
-    if (query) {
-      setSearchValue(query);
-    }
+    const query = new URLSearchParams(location.search).get('q') || '';
+    setSearchValue(query);
   }, [location.search]);
 
   return (

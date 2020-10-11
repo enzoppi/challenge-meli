@@ -26,9 +26,7 @@ function ItemCard(props) {
           <span>{formatPrice(props.item.price.amount)}</span>
           {decimalDisplay(props.item.price)}
         </div>
-        <div className="ItemCard-content-item ItemCard-content-title">
-          <h2 className="ItemCard-content-title-font">{props.item.title}</h2>
-        </div>
+        <h2 className="ItemCard-content-item ItemCard-content-title">{props.item.title}</h2>
       </div>
     </div>
   );
