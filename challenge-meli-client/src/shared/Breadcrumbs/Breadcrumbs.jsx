@@ -6,12 +6,12 @@ function Breadcrumbs(props) {
     <div className="Breadcrumbs">
       <ul className="Breadcrumbs-list">
         {props.breadcrumbs.map((crumb, index) => (
-          <>
-            <li className="Breadcrumbs-list-item" key={crumb}>
-              <p>{crumb}</p>
-            </li>
-            {index + 1 !== props.breadcrumbs.length ? <li>&#62;</li>: ''}
-          </>
+          <li className="Breadcrumbs-list-item" key={crumb}>
+            <span className="Breadcrumbs-list-item--name">{crumb}</span>
+            {index + 1 !== props.breadcrumbs.length ? 
+              <span key={crumb + 'Separator'}>&#62;</span> :
+              ''}
+          </li>
           )
         )}
       </ul>

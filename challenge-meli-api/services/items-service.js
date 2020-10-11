@@ -10,8 +10,8 @@ module.exports = function itemsService(config) {
   const categoriesService = categoryServiceBuilder(config);
 
   return {
-    searchItems: async (queryString) => {
-      const searchItemsPromise = fetchAndDecode(`${config.meliEndpoints.search}?q=${queryString}`, 'json');
+    searchItems: async (queryString, queryLimit) => {
+      const searchItemsPromise = fetchAndDecode(`${config.meliEndpoints.search}?q=${queryString}&limit=${queryLimit}`, 'json');
       const currenciesPromise = currenciesService.getCurrencies();
       // We use Promise.all() to achieve parallel calls to the api instead of awaiting each request before the next
       const [searchItems, currencies] = await Promise.all([searchItemsPromise, currenciesPromise]);

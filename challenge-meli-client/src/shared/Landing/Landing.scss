@@ -6,8 +6,9 @@
 
 .Landing {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: $color-bg-main;
+  padding-bottom: 10vh;
 
   &-sections {
     width: 57vw;
@@ -21,13 +22,4 @@
 
 .Nav {
   height: 100%;
-}
-
-.Section {
-  background-color: var(--secondary-bg-color);
-  min-height: 75vh;
-}
-
-.Footer {
-  height: 5vh;
 }

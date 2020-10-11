@@ -1,6 +1,11 @@
 @import 'styles/variables';
 
 .SearchResults {
+  &-breadcrumbs {
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+  }
+
   &-list {
     list-style-type: none;
     margin: 0;

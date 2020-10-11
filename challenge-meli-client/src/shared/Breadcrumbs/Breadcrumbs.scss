@@ -10,8 +10,12 @@
     padding: 0;
     color: $color-text-secondary;
 
-    p {
-      margin: 0.5rem;
+    &-item {
+      margin: 0 0.5rem;
+
+      &--name {
+        padding-right: 1rem;
+      }
     }
   }
 }

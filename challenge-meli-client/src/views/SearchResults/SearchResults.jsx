@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Breadcrumbs from 'shared/Breadcrumbs/Breadcrumbs';
-import ItemCard from 'shared/ItemCard/ItemCard';
+import ItemCard from './ItemCard/ItemCard';
 import './SearchResults.scss';
 
 function SearchResults(props) {
@@ -13,7 +13,7 @@ function SearchResults(props) {
   useEffect(() => {
     const getItemsFromAPI = async () => {
       const query = new URLSearchParams(location.search).get('q');
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/items?q=${query}`);
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/items?q=${query}&limit=4`);
       return await res.json();
     };
 
@@ -30,7 +30,9 @@ function SearchResults(props) {
 
   return (
     <div className="SearchResults">
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <div className="SearchResults-breadcrumbs">
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
+      </div>
       <ul className="SearchResults-list">
         {items.length || loading ? 
           items.map((item) => (
