@@ -4,10 +4,12 @@ Challenge Técnico MeLi
 ## Notas
 
 ### Breadcrumb
-Para armar el breadcrumb de la vista de resultados, reemplaacé la propiedad *categories*, que en un principio tenía todas las categorías disponibles en los filtros. Luego, al desarrollar la vista de detalles, tenía una nota de que el DTO no tenía propiedad para los breadcrumbs. En retrospectiva, la solución correcta podría haber sido utilizar la implementación original que hice para *categories* y agregar una propiedad *breadcrumb* a ambos DTO para ese uso específico. En el proceso noté que para armar el breadcrumb de los resultados no hacía falta llamar a la API de **Categories** ya que los datos estaban en las propiedades de *filters* y *available_filters*.
+Para armar el breadcrumb de la vista de resultados, reemplacé la propiedad *categories*, que en un principio tenía todas las categorías disponibles en los filtros. Luego, al desarrollar la vista de detalles, tenía una nota de que el DTO no tenía propiedad para los breadcrumbs.
+En retrospectiva, la solución correcta podría haber sido utilizar la implementación original que hice para *categories* y agregar una propiedad *breadcrumb* a ambos DTO para ese uso específico. Pero en el momento utilicé la propiedad *categories* (y la agregué al DTO del detalle).
+En el proceso noté que para armar el breadcrumb de los resultados no hacía falta llamar a la API de **Categories** ya que los datos estaban en las propiedades de *filters* y *available_filters*.
 
 ### Currency
-Para encontrar los decimales de la moneda, fue necesario pegarle a la API de **Currencies**, ya que el dato faltaba en la respuesta de **Search¨**. Con ese fin, opté por traer todos los datos y trabajar con ellos en memoria, para ahorrar el costo de hacer una nueva llamada por cada item individual, aprovechando que, incluso en el peor de los casos, la cantidad de resultados (monedas) es reducida y manejable en memoria.
+Para encontrar los decimales de la moneda, fue necesario llamar a la API de **Currencies**, ya que el dato faltaba en la respuesta de **Search**. Con ese fin, opté por traer todos los datos y trabajar con ellos en memoria, para ahorrar el costo de hacer una nueva llamada por cada item individual, aprovechando que, incluso en el peor de los casos, la cantidad de resultados (monedas) es reducida y manejable en memoria.
 
 ### SEO
 En el caso de SEO, Google indexa correctamente las páginas generadas por *react-router*, no hacía falta ignorar rutas en robots.txt y los meta tags importantes fueron generados automáticamente por *create-react-app*. Sólo hizo falta modificar su contenido.
