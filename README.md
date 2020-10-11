@@ -3,7 +3,7 @@ Challenge Técnico MeLi
 
 Para correr la aplicación, es necesario entrar a la carpeta de cada proyecto por separado por consola y correr el comando *npm start*
   - Backend: *challenge-meli-api* - se inicia con *npm start* y corre en el puerto **9000**
-  - Frontend: *challenge-meli-client* - se inicia con *npm start* y corre en el p uerto **3000**
+  - Frontend: *challenge-meli-client* - se inicia con *npm start* y corre en el puerto **3000**
 
 ## Notas
 
