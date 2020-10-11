@@ -6,6 +6,10 @@ const itemsService = require('../services/items-service')(config);
 router.get('/', async function(req, res, next) {
   const { q, limit } = req.query;
   try {
+    if (!q) throw {
+      status: 400,
+      message: 'A query parameter is required',
+    }
     const results = await itemsService.searchItems(q, limit);
     res.send(results);
   } catch (err) {

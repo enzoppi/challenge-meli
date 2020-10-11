@@ -10,28 +10,20 @@ module.exports = function itemsService(config) {
 
   return {
     searchItems: async (queryString, queryLimit) => {
-      try {
-        const searchItemsPromise = fetchAndDecode(`${config.meliEndpoints.search}?q=${queryString}&limit=${queryLimit}`, 'json');
-        const currenciesPromise = currenciesService.getCurrencies();
-        // We use Promise.all() to achieve parallel calls to the api instead of awaiting each request before the next
-        const [searchItems, currencies] = await Promise.all([searchItemsPromise, currenciesPromise]);
-        return itemsUtils.parseSearchItems(searchItems, currencies);
-      } catch (err) {
-        throw(`Error fetching search results from api: ${err}`);
-      }
+      const searchItemsPromise = fetchAndDecode(`${config.meliEndpoints.search}?q=${queryString}&limit=${queryLimit || 4}`, 'json');
+      const currenciesPromise = currenciesService.getCurrencies();
+      // We use Promise.all() to achieve parallel calls to the api instead of awaiting each request before the next
+      const [searchItems, currencies] = await Promise.all([searchItemsPromise, currenciesPromise]);
+      return itemsUtils.parseSearchItems(searchItems, currencies);
     },
     getItemById: async (id) => {
-      try {
-        const itemPromise = fetchAndDecode(`${config.meliEndpoints.items}/${id}`, 'json');
-        const itemDescriptionPromise = fetchAndDecode(`${config.meliEndpoints.items}/${id}/description`, 'json');
-        const currenciesPromise = currenciesService.getCurrencies();
-        // We use Promise.all() to achieve parallel calls to the api instead of awaiting each request before the next
-        const [item, itemDescription, currencies] = await Promise.all([itemPromise, itemDescriptionPromise, currenciesPromise]);
-        const categoryData = await categoriesService.getCategoryById(item.category_id);
-        return itemsUtils.parseItemById(item, itemDescription, currencies, categoryData);
-      } catch (err) {
-        throw(`Error fetching item details from api: ${err}`);
-      }
+      const itemPromise = fetchAndDecode(`${config.meliEndpoints.items}/${id}`, 'json');
+      const itemDescriptionPromise = fetchAndDecode(`${config.meliEndpoints.items}/${id}/description`, 'json');
+      const currenciesPromise = currenciesService.getCurrencies();
+      // We use Promise.all() to achieve parallel calls to the api instead of awaiting each request before the next
+      const [item, itemDescription, currencies] = await Promise.all([itemPromise, itemDescriptionPromise, currenciesPromise]);
+      const categoryData = await categoriesService.getCategoryById(item.category_id);
+      return itemsUtils.parseItemById(item, itemDescription, currencies, categoryData);
     },
   }
 };

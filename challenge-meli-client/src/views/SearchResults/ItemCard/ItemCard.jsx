@@ -8,7 +8,7 @@ function ItemCard(props) {
   const decimalDisplay = (price) => {
     const amount = price.amount.toFixed(price.decimals);
     const decimals = getDecimals(amount);
-    if (decimals !== 0) {
+    if (decimals !== '00') {
       return <sup>{decimals}</sup>;
     }
   }
