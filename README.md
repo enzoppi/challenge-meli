@@ -1,5 +1,5 @@
 # challenge-meli
-Challenge Técnico MeLi
+Challenge Técnico Mercado Libre
 
 Para correr la aplicación, es necesario entrar a la carpeta de cada proyecto por separado por consola y correr el comando *npm start*
   - Backend: *challenge-meli-api* - se inicia con *npm start* y corre en el puerto **9000**
